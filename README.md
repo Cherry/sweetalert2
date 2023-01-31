@@ -1,3 +1,8 @@
+This fork is not designed to make a political statement, but instead to remove any and all political statements from the original project, to remain neutral and to allow the project to be used in any context.
+
+`npm i @cherry/sweetalert2`
+---
+
 <a href="https://sweetalert2.github.io/">
   <img src="./assets/swal2-logo.png" width="498" alt="SweetAlert2">
 </a>
