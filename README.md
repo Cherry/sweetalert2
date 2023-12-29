@@ -1,6 +1,16 @@
 This fork is not designed to make a political statement, but instead to remove any and all political statements from the original project, to remain neutral and to allow the project to be used in any context.
 
-`npm i @cherry/sweetalert2`
+`npm i -D @cherryjimbo/sweetalert2`
+
+Or to use it as an alias so you don't have to update any code references, you can add this to your package.json:
+
+```json
+"devDependencies": {
+  // ... other dependencies
+  "sweetalert2": "npm:@cherryjimbo/sweetalert2@x.x.x",
+}
+```
+
 ---
 
 <a href="https://sweetalert2.github.io/">
