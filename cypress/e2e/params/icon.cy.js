@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import { isVisible } from '../../../src/utils/dom'
 import { Swal, SwalWithoutAnimation, isHidden } from '../../utils'
 import { iconTypes, swalClasses } from '../../../src/utils/classes'
@@ -32,6 +34,15 @@ describe('icon', () => {
   it('Success icon with custom HTML (iconHtml)', () => {
     Swal.fire({
       icon: 'success',
+      iconHtml: '<i class="fa fa-circle"></i>',
+    })
+
+    expect(Swal.getIcon().innerHTML).to.equal('<div class="swal2-icon-content"><i class="fa fa-circle"></i></div>')
+  })
+
+  it('Undefined icon with custom HTML (iconHtml)', () => {
+    Swal.fire({
+      icon: undefined,
       iconHtml: '<i class="fa fa-circle"></i>',
     })
 

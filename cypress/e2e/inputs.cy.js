@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 import { isVisible } from '../../src/utils/dom'
 import { $, Swal, SwalWithoutAnimation, TIMEOUT, dispatchCustomEvent, isHidden, triggerKeydownEvent } from '../utils'
 import defaultInputValidators from '../../src/utils/defaultInputValidators'
@@ -7,7 +9,7 @@ describe('Inputs', () => {
     const spy = cy.spy(console, 'error')
     Swal.fire({ input: 'invalid-input-type' })
     expect(spy).to.be.calledWith(
-      'SweetAlert2: Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "invalid-input-type"'
+      'SweetAlert2: Unexpected type of input! Expected month | week | time | datetime-local | date | search | url | tel | number | password | email | text | file | range | select | radio | checkbox | textarea, got "invalid-input-type"'
     )
   })
 
@@ -369,6 +371,41 @@ describe('Inputs', () => {
     })
   })
 
+  it('popup should keep the custom width when textarea value is a promise', (done) => {
+    SwalWithoutAnimation.fire({
+      input: 'textarea',
+      width: 600,
+      inputValue: new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('foo')
+        }, 10)
+      }),
+    })
+    setTimeout(() => {
+      expect(Swal.getInput().value).to.equal('foo')
+      expect(Swal.getPopup().style.width).to.equal('600px')
+      done()
+    }, 20)
+  })
+
+  it('should not fail if textarea value is a promise and popup is closed before the promise is resolved', (done) => {
+    SwalWithoutAnimation.fire({
+      input: 'textarea',
+      width: 600,
+      inputValue: new Promise((resolve) => {
+        setTimeout(() => {
+          resolve('foo')
+        }, 10)
+      }),
+      didOpen: () => {
+        Swal.close()
+      },
+    })
+    setTimeout(() => {
+      done()
+    }, 20)
+  })
+
   it('returnInputValueOnDeny: true should pass the input value as result.value', (done) => {
     SwalWithoutAnimation.fire({
       input: 'text',
@@ -517,9 +554,10 @@ describe('Validation', () => {
   it('validation message with object containing toPromise', (done) => {
     SwalWithoutAnimation.fire({
       input: 'text',
-      inputValidator: (value) => ({
-        toPromise: () => Promise.resolve(!value && 'no falsy values'),
+      inputValidator: (value, validationMessage) => ({
+        toPromise: () => Promise.resolve(!value && validationMessage),
       }),
+      validationMessage: 'no falsy values',
     })
 
     setTimeout(() => {

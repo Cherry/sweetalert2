@@ -27,6 +27,7 @@ export default {
   plugins: [
     babel({
       babelHelpers: 'bundled',
+      presets: ['@babel/preset-env'],
     }),
   ],
   input: 'src/sweetalert2.js',

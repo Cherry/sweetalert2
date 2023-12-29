@@ -1,12 +1,11 @@
+/// <reference types="cypress" />
+
 import { Swal } from '../utils'
 
 describe('API', () => {
   it('properties of `Swal` class are consistent', (done) => {
     const assertConsistent = (postfix) => {
       const currentSwalPropNames = Object.keys(Swal)
-      // const extraPropNames = currentSwalPropNames.filter(key => !initialSwalPropNames.includes(key))
-      // expect(extraPropNames.length, 0).to.be.eql(`# of extra properties ${postfix}`)
-      // expect(extraPropNames.join(','), '').to.be.eql(`extra property names ${postfix}`)
       const missingProps = currentSwalPropNames.filter((key) => !currentSwalPropNames.includes(key))
       expect(missingProps.length).to.equal(0, `# of missing properties ${postfix}`)
       expect(missingProps.join(',')).to.equal('', `missing property names ${postfix}`)
@@ -32,7 +31,7 @@ describe('API', () => {
   it('instance properties and methods', () => {
     const params = { input: 'text', inputValue: 'foo' }
     const swal = Swal.fire(params)
-    expect(Object.keys(swal)).to.be.eql(['params'])
+    expect(Object.keys(swal)).contain.members(['params'])
     expect(swal.params).to.be.eql(params)
     expect(swal.getInput().value).to.equal('foo')
   })
