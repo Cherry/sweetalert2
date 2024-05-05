@@ -1,3 +1,45 @@
+## [11.10.8](https://github.com/sweetalert2/sweetalert2/compare/v11.10.7...v11.10.8) (2024-04-17)
+
+
+### Bug Fixes
+
+* prevent popup content from being selected on double click on the container ([#2722](https://github.com/sweetalert2/sweetalert2/issues/2722)) ([7910325](https://github.com/sweetalert2/sweetalert2/commit/79103251ddbc664171cc6538320d57ca72a36a89))
+
+## [11.10.7](https://github.com/sweetalert2/sweetalert2/compare/v11.10.6...v11.10.7) (2024-03-22)
+
+
+### Bug Fixes
+
+* improve performance by pulling querySelector out of the loop ([#2719](https://github.com/sweetalert2/sweetalert2/issues/2719)) ([9f94517](https://github.com/sweetalert2/sweetalert2/commit/9f9451789d1efab3f0dc5a7f841af0f17619b2f4))
+
+## [11.10.6](https://github.com/sweetalert2/sweetalert2/compare/v11.10.5...v11.10.6) (2024-03-05)
+
+
+### Bug Fixes
+
+* allow single quotes in default email validator ([#2717](https://github.com/sweetalert2/sweetalert2/issues/2717)) ([e4b7a3a](https://github.com/sweetalert2/sweetalert2/commit/e4b7a3a9a19a5e9009dbe594022ab338ad5bb21c))
+
+## [11.10.5](https://github.com/sweetalert2/sweetalert2/compare/v11.10.4...v11.10.5) (2024-02-05)
+
+
+### Bug Fixes
+
+* show the browser validation message for input ([#2704](https://github.com/sweetalert2/sweetalert2/issues/2704)) ([68d6d35](https://github.com/sweetalert2/sweetalert2/commit/68d6d35b3a285fe50ee0857966885fdc1368f0f8))
+
+## [11.10.4](https://github.com/sweetalert2/sweetalert2/compare/v11.10.3...v11.10.4) (2024-01-23)
+
+
+### Bug Fixes
+
+* iconColor for success and error icons ([#2703](https://github.com/sweetalert2/sweetalert2/issues/2703)) ([ebb0c39](https://github.com/sweetalert2/sweetalert2/commit/ebb0c396adcde822b16c19fa08e98e4ccdc73000))
+
+## [11.10.3](https://github.com/sweetalert2/sweetalert2/compare/v11.10.2...v11.10.3) (2024-01-11)
+
+
+### Bug Fixes
+
+* rm unnecessary transform styles on success icon ([69c2372](https://github.com/sweetalert2/sweetalert2/commit/69c237281563dad020af3bb0771d695ccf6aff14)), closes [#2698](https://github.com/sweetalert2/sweetalert2/issues/2698)
+
 ## [11.10.2](https://github.com/sweetalert2/sweetalert2/compare/v11.10.1...v11.10.2) (2023-12-27)
 
 
