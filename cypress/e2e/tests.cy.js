@@ -8,6 +8,8 @@ import {
   SwalWithoutAnimation,
   TIMEOUT,
   dispatchCustomEvent,
+  dispatchMouseEvent,
+  dispatchTouchEvent,
   ensureClosed,
   isHidden,
   triggerKeydownEvent,
@@ -205,6 +207,9 @@ describe('should trap focus in modals', () => {
         expect(document.activeElement).to.equal(Swal.getConfirmButton())
         triggerKeydownEvent(document.activeElement, 'Tab', { shiftKey: true })
         expect(document.activeElement).to.equal(Swal.getInput())
+        Swal.getPopup().focus()
+        triggerKeydownEvent(document.activeElement, 'Tab', { shiftKey: true })
+        expect(document.activeElement).to.equal(Swal.getCancelButton())
         done()
       },
     })
@@ -461,6 +466,59 @@ describe('customClass', () => {
       spy.calledWith('SweetAlert2: Invalid type of customClass.popup! Expected string or iterable object, got "number"')
     ).to.be.true
   })
+})
+
+describe('draggable', () => {
+  it('should drag popup with mouse evnets', () => {
+    SwalWithoutAnimation.fire({
+      title: 'Drag me!',
+      draggable: true,
+    })
+
+    const popup = Swal.getPopup()
+    const initialRect = popup.getBoundingClientRect()
+    const initialX = initialRect.left
+    const initialY = initialRect.top
+
+    dispatchMouseEvent(popup, 'mousedown', { clientX: initialX, clientY: initialY })
+    dispatchMouseEvent(document.body, 'mousemove', { clientX: initialX + 10, clientY: initialY + 10 })
+    dispatchMouseEvent(popup, 'mouseup')
+    dispatchMouseEvent(document.body, 'mousemove', { clientX: initialX + 20, clientY: initialY + 20 })
+
+    const finalRect = popup.getBoundingClientRect()
+    const finalX = finalRect.left
+    const finalY = finalRect.top
+
+    expect(finalX).to.equal(initialX + 10)
+    expect(finalY).to.equal(initialY + 10)
+  })
+
+  // `Touch` and `TouchEvent` are only available in Chrome
+  if (Cypress.isBrowser('chrome')) {
+    it('should drag popup with touch events', () => {
+      SwalWithoutAnimation.fire({
+        title: 'Drag me!',
+        draggable: true,
+      })
+
+      const popup = Swal.getPopup()
+      const initialRect = popup.getBoundingClientRect()
+      const initialX = initialRect.left
+      const initialY = initialRect.top
+
+      dispatchTouchEvent(popup, 'touchstart', { clientX: initialX, clientY: initialY })
+      dispatchTouchEvent(document.body, 'touchmove', { clientX: initialX + 10, clientY: initialY + 10 })
+      dispatchTouchEvent(popup, 'touchend')
+      dispatchTouchEvent(document.body, 'touchmove', { clientX: initialX + 20, clientY: initialY + 20 })
+
+      const finalRect = popup.getBoundingClientRect()
+      const finalX = finalRect.left
+      const finalY = finalRect.top
+
+      expect(finalX).to.equal(initialX + 10)
+      expect(finalY).to.equal(initialY + 10)
+    })
+  }
 })
 
 describe('grow', () => {
@@ -1189,7 +1247,7 @@ describe('template', () => {
     expect($('.swal2-select option:nth-child(3)').selected).to.be.true
     expect(isHidden(Swal.getConfirmButton())).to.be.true
     expect(isVisible(Swal.getCancelButton())).to.be.true
-    expect(Swal.getDenyButton().style.backgroundColor).to.equal('red')
+    expect(window.getComputedStyle(Swal.getDenyButton()).backgroundColor).to.equal('rgb(255, 0, 0)')
     expect(Swal.getPopup().style.width).to.equal('200px')
     expect(isVisible(Swal.getDenyButton())).to.be.true
     expect(Swal.getCancelButton().nextSibling).to.equal(Swal.getDenyButton())
@@ -2001,6 +2059,38 @@ describe('global events and listeners', () => {
   })
 })
 
+describe('theme', () => {
+  it('should use light theme by default', () => {
+    SwalWithoutAnimation.fire()
+    const computedPopupStyle = window.getComputedStyle(Swal.getPopup())
+    expect(computedPopupStyle.backgroundColor).to.equal('rgb(255, 255, 255)')
+  })
+
+  it('should show dark theme', () => {
+    SwalWithoutAnimation.fire({ theme: 'dark' })
+    const computedPopupStyle = window.getComputedStyle(Swal.getPopup())
+    expect(computedPopupStyle.backgroundColor).to.equal('rgb(25, 25, 26)')
+  })
+
+  it('should show auto theme', () => {
+    SwalWithoutAnimation.fire({ theme: 'auto' })
+    const computedPopupStyle = window.getComputedStyle(Swal.getPopup())
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      expect(computedPopupStyle.backgroundColor).to.equal('rgb(255, 255, 255)')
+    } else {
+      expect(computedPopupStyle.backgroundColor).to.equal('rgb(25, 25, 26)')
+    }
+  })
+
+  it('should throw a warning when theme param is invalid', () => {
+    const spy = cy.spy(console, 'warn')
+    SwalWithoutAnimation.fire({
+      theme: 'foo',
+    })
+    expect(spy.calledWith(`SweetAlert2: Invalid theme "foo"`)).to.be.true
+  })
+})
+
 describe('update()', () => {
   it('all updatableParams are valid', () => {
     expect(updatableParams.length).not.to.equal(0)
@@ -2242,6 +2332,13 @@ describe('update()', () => {
       done()
     })
     Swal.clickConfirm()
+  })
+
+  it('update() method should throw a warning about invalid new params', () => {
+    const spy = cy.spy(console, 'warn')
+    SwalWithoutAnimation.fire()
+    Swal.update({ theme: 'foo' })
+    expect(spy.calledWith(`SweetAlert2: Invalid theme "foo"`)).to.be.true
   })
 })
 
@@ -2622,6 +2719,17 @@ describe('Miscellaneous tests', function () {
     })
   })
 
+  it('allowEscapeKey: false', () => {
+    SwalWithoutAnimation.fire({
+      allowEscapeKey: false,
+    })
+    const event1 = triggerKeydownEvent(Swal.getPopup(), 'Escape')
+    expect(event1.defaultPrevented).to.be.true
+    SwalWithoutAnimation.close()
+    const event2 = triggerKeydownEvent(document.body, 'Escape')
+    expect(event2.defaultPrevented).to.be.false
+  })
+
   it('allowEscapeKey as a function', (done) => {
     let functionWasCalled = false
 
@@ -2797,7 +2905,7 @@ describe('Miscellaneous tests', function () {
   })
 
   it('visual appearance', () => {
-    Swal.fire({
+    SwalWithoutAnimation.fire({
       padding: '2em',
       background: 'red',
       confirmButtonColor: 'green',
@@ -2806,10 +2914,19 @@ describe('Miscellaneous tests', function () {
     })
 
     expect(Swal.getPopup().style.padding).to.equal('2em')
-    expect(window.getComputedStyle(Swal.getPopup()).backgroundColor, 'rgb(255, 0).to.equal(0)')
-    expect(Swal.getConfirmButton().style.backgroundColor).to.equal('green')
-    expect(Swal.getDenyButton().style.backgroundColor).to.equal('red')
-    expect(Swal.getCancelButton().style.backgroundColor).to.equal('blue')
+    expect(window.getComputedStyle(Swal.getPopup()).backgroundColor).to.equal('rgb(255, 0, 0)')
+    expect(window.getComputedStyle(Swal.getConfirmButton()).backgroundColor).to.equal('rgb(0, 128, 0)')
+    expect(window.getComputedStyle(Swal.getDenyButton()).backgroundColor).to.equal('rgb(255, 0, 0)')
+    expect(window.getComputedStyle(Swal.getCancelButton()).backgroundColor).to.equal('rgb(0, 0, 255)')
+    expect(Swal.getConfirmButton().style.getPropertyValue('--swal2-action-button-focus-box-shadow')).to.equal(
+      '0 0 0 3px rgba(0, 128, 0, 0.5)'
+    )
+    expect(Swal.getDenyButton().style.getPropertyValue('--swal2-action-button-focus-box-shadow')).to.equal(
+      '0 0 0 3px rgba(255, 0, 0, 0.5)'
+    )
+    expect(Swal.getCancelButton().style.getPropertyValue('--swal2-action-button-focus-box-shadow')).to.equal(
+      '0 0 0 3px rgba(0, 0, 255, 0.5)'
+    )
   })
 
   it('null values', () => {
@@ -3911,6 +4028,9 @@ describe('Styling', () => {
       .my-icon {
         width: 12px;
       }
+      .my-html-container {
+        padding: 0;
+      }
       .my-image {
         max-width: 13px;
       }
@@ -3966,6 +4086,7 @@ describe('Styling', () => {
         title: 'my-title',
         closeButton: 'my-close-button',
         icon: 'my-icon',
+        htmlContainer: 'my-html-container',
         image: 'my-image',
         input: 'my-input',
         inputLabel: 'my-input-label',
@@ -3984,6 +4105,8 @@ describe('Styling', () => {
         expect(window.getComputedStyle(Swal.getTitle()).fontSize).to.equal('10px')
         expect(window.getComputedStyle(Swal.getCloseButton()).fontSize).to.equal('11px')
         expect(window.getComputedStyle(Swal.getIcon()).width).to.equal('12px')
+        expect(window.getComputedStyle(Swal.getHtmlContainer()).paddingTop).to.equal('0px')
+        expect(window.getComputedStyle(Swal.getHtmlContainer()).paddingLeft).to.equal('0px')
         expect(window.getComputedStyle(Swal.getImage()).maxWidth).to.equal('13px')
         expect(window.getComputedStyle(Swal.getInput()).fontSize).to.equal('14px')
         expect(window.getComputedStyle(Swal.getInputLabel()).margin).to.equal('0px')

@@ -1,3 +1,262 @@
+## [11.26.3](https://github.com/sweetalert2/sweetalert2/compare/v11.26.2...v11.26.3) (2025-10-17)
+
+
+### Bug Fixes
+
+* Swal.DismissReason type ([#2884](https://github.com/sweetalert2/sweetalert2/issues/2884)) ([b7f5ab6](https://github.com/sweetalert2/sweetalert2/commit/b7f5ab6be837e7ed43cb48adf7fbe904643ee24a))
+
+## [11.26.2](https://github.com/sweetalert2/sweetalert2/compare/v11.26.1...v11.26.2) (2025-10-12)
+
+
+### Bug Fixes
+
+* DismissReason type, ESLint warnings ([#2882](https://github.com/sweetalert2/sweetalert2/issues/2882)) ([c5af0cf](https://github.com/sweetalert2/sweetalert2/commit/c5af0cf40e5e1c81d9f2d91ae6ee3e7541d33c77))
+
+## [11.26.1](https://github.com/sweetalert2/sweetalert2/compare/v11.26.0...v11.26.1) (2025-10-10)
+
+
+### Bug Fixes
+
+* backdrop blinking when a new swal is opened right after another one ([#2880](https://github.com/sweetalert2/sweetalert2/issues/2880)) ([767548e](https://github.com/sweetalert2/sweetalert2/commit/767548e921caccbf95dbd931f3793dfa57048eae))
+
+# [11.26.0](https://github.com/sweetalert2/sweetalert2/compare/v11.25.1...v11.26.0) (2025-10-10)
+
+
+### Features
+
+* add Bootstrap 5 theme ([#2879](https://github.com/sweetalert2/sweetalert2/issues/2879)) ([0368db4](https://github.com/sweetalert2/sweetalert2/commit/0368db438ebb852650efdae78926292875c5d553))
+
+## [11.25.1](https://github.com/sweetalert2/sweetalert2/compare/v11.25.0...v11.25.1) (2025-10-09)
+
+
+### Bug Fixes
+
+* replace $swal2-outline-color SCSS variable with literal value ([#2878](https://github.com/sweetalert2/sweetalert2/issues/2878)) ([7a63dad](https://github.com/sweetalert2/sweetalert2/commit/7a63dadd896228c8e7f6fbf33e1e9bc7702736af))
+
+# [11.25.0](https://github.com/sweetalert2/sweetalert2/compare/v11.24.1...v11.25.0) (2025-10-08)
+
+
+### Features
+
+* add Material UI theme ([#2876](https://github.com/sweetalert2/sweetalert2/issues/2876)) ([14c1392](https://github.com/sweetalert2/sweetalert2/commit/14c1392da3769fa9e1f1fef28a678ae8c4590659))
+
+## [11.24.1](https://github.com/sweetalert2/sweetalert2/compare/v11.24.0...v11.24.1) (2025-10-07)
+
+
+### Bug Fixes
+
+* make swal-show and swal-hide animations less fancy ([#2875](https://github.com/sweetalert2/sweetalert2/issues/2875)) ([98288c1](https://github.com/sweetalert2/sweetalert2/commit/98288c1cf0a483d387cb568e7942492c5644cbe8))
+
+# [11.24.0](https://github.com/sweetalert2/sweetalert2/compare/v11.23.0...v11.24.0) (2025-10-06)
+
+
+### Features
+
+* add bootstrap-4 theme ([#2874](https://github.com/sweetalert2/sweetalert2/issues/2874)) ([8fdd6aa](https://github.com/sweetalert2/sweetalert2/commit/8fdd6aa24b12ed5d7833b0b66a33a322f34924bb))
+
+# [11.23.0](https://github.com/sweetalert2/sweetalert2/compare/v11.22.4...v11.23.0) (2025-09-04)
+
+
+### Features
+
+* replace deprecated word-wrap with overflow-wrap ([2667a49](https://github.com/sweetalert2/sweetalert2/commit/2667a49f423a86015224a4010422bc7ed3208b16))
+
+## [11.22.4](https://github.com/sweetalert2/sweetalert2/compare/v11.22.3...v11.22.4) (2025-08-14)
+
+
+### Bug Fixes
+
+* remove protestware ([#2847](https://github.com/sweetalert2/sweetalert2/issues/2847)) ([be65518](https://github.com/sweetalert2/sweetalert2/commit/be65518580110645f1506ce0ddb92a3ad3cc60fd))
+
+## [11.22.3](https://github.com/sweetalert2/sweetalert2/compare/v11.22.2...v11.22.3) (2025-08-08)
+
+
+### Bug Fixes
+
+* timer progressbar color for dark theme ([#2844](https://github.com/sweetalert2/sweetalert2/issues/2844)) ([54bdd47](https://github.com/sweetalert2/sweetalert2/commit/54bdd47f4a888fcaf886a13118ffe11b987ea6af))
+
+## [11.22.2](https://github.com/sweetalert2/sweetalert2/compare/v11.22.1...v11.22.2) (2025-06-29)
+
+
+### Bug Fixes
+
+* simplify success icon when animation: false ([#2836](https://github.com/sweetalert2/sweetalert2/issues/2836)) ([affbbf5](https://github.com/sweetalert2/sweetalert2/commit/affbbf5c22cb2ba345c363c4c62717d052a774ff))
+
+## [11.22.1](https://github.com/sweetalert2/sweetalert2/compare/v11.22.0...v11.22.1) (2025-06-23)
+
+
+### Bug Fixes
+
+* always prevent default esc when swal is shown ([#2834](https://github.com/sweetalert2/sweetalert2/issues/2834)) ([4782601](https://github.com/sweetalert2/sweetalert2/commit/478260131fcb253cbb91a674313f1395bd1739e6))
+
+# [11.22.0](https://github.com/sweetalert2/sweetalert2/compare/v11.21.2...v11.22.0) (2025-05-25)
+
+
+### Features
+
+* add Bulma theme ([#2829](https://github.com/sweetalert2/sweetalert2/issues/2829)) ([355b2bc](https://github.com/sweetalert2/sweetalert2/commit/355b2bcbbd4928154dfb8503746ac63626bb6681))
+
+## [11.21.2](https://github.com/sweetalert2/sweetalert2/compare/v11.21.1...v11.21.2) (2025-05-18)
+
+
+### Bug Fixes
+
+* **theming:** use color-mix for buttons darkening ([#2825](https://github.com/sweetalert2/sweetalert2/issues/2825)) ([57d12b6](https://github.com/sweetalert2/sweetalert2/commit/57d12b6e5841377dac68387d6077b2d9b6b97b31))
+
+## [11.21.1](https://github.com/sweetalert2/sweetalert2/compare/v11.21.0...v11.21.1) (2025-05-16)
+
+
+### Bug Fixes
+
+* **ios:** scrollable elements inside html container ([#2824](https://github.com/sweetalert2/sweetalert2/issues/2824)) ([137ff9d](https://github.com/sweetalert2/sweetalert2/commit/137ff9da423ce96d716f648f8b5099d4b2fc441d))
+
+# [11.21.0](https://github.com/sweetalert2/sweetalert2/compare/v11.20.0...v11.21.0) (2025-05-04)
+
+
+### Features
+
+* add minimal theme ([#2821](https://github.com/sweetalert2/sweetalert2/issues/2821)) ([a98a063](https://github.com/sweetalert2/sweetalert2/commit/a98a0630456a68654be770226eb9d40973437ed6))
+
+# [11.20.0](https://github.com/sweetalert2/sweetalert2/compare/v11.19.1...v11.20.0) (2025-05-03)
+
+
+### Features
+
+* add topLayer param to utilize browsers' top layer API ([#2820](https://github.com/sweetalert2/sweetalert2/issues/2820)) ([003902a](https://github.com/sweetalert2/sweetalert2/commit/003902aa324699f0a751abeaa89b3cbe11ac9821))
+
+## [11.19.1](https://github.com/sweetalert2/sweetalert2/compare/v11.19.0...v11.19.1) (2025-04-15)
+
+
+### Bug Fixes
+
+* shift+tab when a popup is focused ([#2815](https://github.com/sweetalert2/sweetalert2/issues/2815)) ([f68b60e](https://github.com/sweetalert2/sweetalert2/commit/f68b60e9fefd713b2b50ec15b94d5577fdced1ae))
+
+# [11.19.0](https://github.com/sweetalert2/sweetalert2/compare/v11.18.0...v11.19.0) (2025-04-15)
+
+
+### Features
+
+* match outline color with custom button colors ([#2814](https://github.com/sweetalert2/sweetalert2/issues/2814)) ([62fb3fc](https://github.com/sweetalert2/sweetalert2/commit/62fb3fc8eaaacf5931a5d541003f479cb992f6d0))
+
+# [11.18.0](https://github.com/sweetalert2/sweetalert2/compare/v11.17.2...v11.18.0) (2025-04-14)
+
+
+### Features
+
+* add embed-iframe theme ([#2813](https://github.com/sweetalert2/sweetalert2/issues/2813)) ([f455b5f](https://github.com/sweetalert2/sweetalert2/commit/f455b5f93291f07c30fd1557f0a35497ea6b7592))
+
+## [11.17.2](https://github.com/sweetalert2/sweetalert2/compare/v11.17.1...v11.17.2) (2025-02-16)
+
+
+### Bug Fixes
+
+* **types:** allow theme update ([4b8c4e2](https://github.com/sweetalert2/sweetalert2/commit/4b8c4e2d1ee01dae36870a01fbb3067615bd5d35))
+
+## [11.17.1](https://github.com/sweetalert2/sweetalert2/compare/v11.17.0...v11.17.1) (2025-02-16)
+
+
+### Bug Fixes
+
+* **types:** allow borderless theme ([8618e53](https://github.com/sweetalert2/sweetalert2/commit/8618e539acb8fc1a65aeb9f2c95fa4c8f0f0926f))
+
+# [11.17.0](https://github.com/sweetalert2/sweetalert2/compare/v11.16.1...v11.17.0) (2025-02-16)
+
+
+### Features
+
+* add borderless theme ([#2800](https://github.com/sweetalert2/sweetalert2/issues/2800)) ([31bc364](https://github.com/sweetalert2/sweetalert2/commit/31bc364be19e3f57ae84bafcb14296f8e9984af3))
+
+## [11.16.1](https://github.com/sweetalert2/sweetalert2/compare/v11.16.0...v11.16.1) (2025-02-14)
+
+
+### Bug Fixes
+
+* toast background color fixed to white in dark theme ([#2798](https://github.com/sweetalert2/sweetalert2/issues/2798)) ([33e248b](https://github.com/sweetalert2/sweetalert2/commit/33e248b25546d9ec6db0ac8f13b379f19e9721cd))
+
+# [11.16.0](https://github.com/sweetalert2/sweetalert2/compare/v11.15.10...v11.16.0) (2025-02-08)
+
+
+### Features
+
+* add built-in light/dark/auto themes ([#2796](https://github.com/sweetalert2/sweetalert2/issues/2796)) ([3f64e05](https://github.com/sweetalert2/sweetalert2/commit/3f64e0584c276f56e631a957fc56ae4c74214224))
+
+## [11.15.10](https://github.com/sweetalert2/sweetalert2/compare/v11.15.9...v11.15.10) (2025-01-03)
+
+
+### Bug Fixes
+
+* **kiss:** get rid of sass:color ([ef5ff13](https://github.com/sweetalert2/sweetalert2/commit/ef5ff132d65ed824be09cdce7538e29c4b364bda))
+
+## [11.15.9](https://github.com/sweetalert2/sweetalert2/compare/v11.15.8...v11.15.9) (2025-01-02)
+
+
+### Bug Fixes
+
+* **styles:** stop using sass:math, add $swal2-icon-border-width scss variable ([d0bf711](https://github.com/sweetalert2/sweetalert2/commit/d0bf7115e4e21dc8ce3df0740ea73b20463e9543))
+
+## [11.15.8](https://github.com/sweetalert2/sweetalert2/compare/v11.15.7...v11.15.8) (2025-01-02)
+
+
+### Bug Fixes
+
+* toast styles ([4dc809d](https://github.com/sweetalert2/sweetalert2/commit/4dc809dde42c83d96255ddcd9814eff39dc3d95a))
+
+## [11.15.7](https://github.com/sweetalert2/sweetalert2/compare/v11.15.6...v11.15.7) (2025-01-02)
+
+
+### Bug Fixes
+
+* style for toast icons ([812d6c5](https://github.com/sweetalert2/sweetalert2/commit/812d6c57b2cd22cd89857671979b8e6046376edd)), closes [#2792](https://github.com/sweetalert2/sweetalert2/issues/2792)
+
+## [11.15.6](https://github.com/sweetalert2/sweetalert2/compare/v11.15.5...v11.15.6) (2025-01-02)
+
+
+### Bug Fixes
+
+* get rid of SCSS mixins, one file for styles is what I need ([#2791](https://github.com/sweetalert2/sweetalert2/issues/2791)) ([5e72a29](https://github.com/sweetalert2/sweetalert2/commit/5e72a29a1395c4d58d4cc0759cb6aa530ac390dc))
+
+## [11.15.5](https://github.com/sweetalert2/sweetalert2/compare/v11.15.4...v11.15.5) (2025-01-01)
+
+
+### Bug Fixes
+
+* revert "stop using deprecated sass imports ([#2790](https://github.com/sweetalert2/sweetalert2/issues/2790))" ([dd97316](https://github.com/sweetalert2/sweetalert2/commit/dd97316de67a71b719255481d0c5c730a0eea65d))
+
+## [11.15.4](https://github.com/sweetalert2/sweetalert2/compare/v11.15.3...v11.15.4) (2025-01-01)
+
+
+### Bug Fixes
+
+* stop using deprecated sass imports ([#2790](https://github.com/sweetalert2/sweetalert2/issues/2790)) ([c5cc516](https://github.com/sweetalert2/sweetalert2/commit/c5cc5160848986f0a95a631c79e949c6d1a846f9))
+
+## [11.15.3](https://github.com/sweetalert2/sweetalert2/compare/v11.15.2...v11.15.3) (2024-12-21)
+
+
+### Bug Fixes
+
+* styles specificity for html container ([1104474](https://github.com/sweetalert2/sweetalert2/commit/11044749830e36846190ff87030dd5a58d835fb8))
+
+## [11.15.2](https://github.com/sweetalert2/sweetalert2/compare/v11.15.1...v11.15.2) (2024-12-17)
+
+
+### Bug Fixes
+
+* draggable cursor ([#2788](https://github.com/sweetalert2/sweetalert2/issues/2788)) ([b561301](https://github.com/sweetalert2/sweetalert2/commit/b561301ecc025cd4bd2fef807b1c06711246d23b))
+
+## [11.15.1](https://github.com/sweetalert2/sweetalert2/compare/v11.15.0...v11.15.1) (2024-12-16)
+
+
+### Bug Fixes
+
+* dragging cursor ([#2787](https://github.com/sweetalert2/sweetalert2/issues/2787)) ([1926b76](https://github.com/sweetalert2/sweetalert2/commit/1926b76ead2ce2e721420281ffe2229f7e34d3da))
+
+# [11.15.0](https://github.com/sweetalert2/sweetalert2/compare/v11.14.5...v11.15.0) (2024-12-14)
+
+
+### Features
+
+* add draggable param ([#2786](https://github.com/sweetalert2/sweetalert2/issues/2786)) ([eb86a66](https://github.com/sweetalert2/sweetalert2/commit/eb86a660f999f2373d5b685a8c9900050b17468e))
+
 ## [11.14.5](https://github.com/sweetalert2/sweetalert2/compare/v11.14.4...v11.14.5) (2024-11-04)
 
 
